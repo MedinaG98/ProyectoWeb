@@ -1,7 +1,5 @@
 <?php
     session_start();
-    
-    $usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -43,7 +41,7 @@ and open the template in the editor.
             <br>
             <br>
             <br>
-            <img src="Imagenes/user.png" width="100" height="100"/>
+            <img src="../Imagenes/user.png" width="100" height="100"/>
             <br>
             <br>
             <br>
@@ -52,14 +50,14 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="d-flex justify-content-center align-items-center container">
-                    <form action="valida.php" method="post">
+                    <form action="../Modelo/valida.php" method="post">
                         <div class="form-group">
                             <label for="uname" class="control-label">Usuario:</label>
-                            <input type="text" class="form-control" id="email">
+                            <input type="text" class="form-control" name="user">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <input type="password" class="form-control" name="pwd">
                         </div>
                         <br><br>
                         <button type="submit" class="btn btn-secondary">Entrar</button>

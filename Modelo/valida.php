@@ -7,14 +7,11 @@
  */
 $Usuario = $_POST["user"];
 $Pwd = $_POST["pwd"];
+include '../Dao/DAOUsuario.php';
 
 function valida($usuario, $contrasena){
-    
-    if($usuario == "ArielMD" && $contrasena=="123"){
-        return true;
-    }else{
-        return false;
-    }
+    $daoUser = new DAOUsuario();
+    return $daoUser->entrar($usuario, $contrasena);
 }
 
 $boolean = valida($Usuario, $Pwd);
