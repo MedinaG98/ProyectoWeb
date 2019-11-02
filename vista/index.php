@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+    $usuario = $_SESSION['usuario'];
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -47,7 +52,7 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="d-flex justify-content-center align-items-center container">
-                    <form>
+                    <form action="valida.php" method="post">
                         <div class="form-group">
                             <label for="uname" class="control-label">Usuario:</label>
                             <input type="text" class="form-control" id="email">
