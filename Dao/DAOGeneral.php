@@ -15,51 +15,56 @@ abstract class DAOGeneral {
 
     private $USER = "root";
     private $PWD = "123456";
-    private $SERVIDOR = "localhost:3306";
+    private $SERVIDOR = "localhost";
     private $BD = "base_usuarios";
 
     public function getConexion() {
-        /* @var $cnx type */
-        return  mysqli_connect($this->SERVIDOR, $this->USER, $$this->PWD);
+
+        $cnx = null;
+        $cnx = new PDO('mysql:host=' . $this->SERVIDOR . ';dbname=' . $this->BD, $this->USER, $this->PWD);
+        if ($cnx != null) {
+            return $cnx;
+        }
     }
 
-    abstract public function agregar($entidad);
+    abstract public function insertar($entidad);
 
     abstract public function eliminar($condicion);
 
-    abstract public function modificar($entidad, $condicion);
+    abstract public function modificar($entidad);
 
     abstract public function consultar($condicion);
 
-    static function getUSER() {
-        return self::$USER;
+    function getUSER() {
+        return $this->USER;
     }
 
-    static function getPWD() {
-        return self::$PWD;
+    function getPWD() {
+        return $this->PWD;
     }
 
-    static function getSERVIDOR() {
-        return self::$SERVIDOR;
+    function getSERVIDOR() {
+        return $this->SERVIDOR;
     }
 
-    static function getBD() {
-        return self::$BD;
-    }
-    static function setUSER($USER) {
-        self::$USER = $USER;
+    function getBD() {
+        return $this->BD;
     }
 
-    static function setPWD($PWD) {
-        self::$PWD = $PWD;
+    function setUSER($USER) {
+        $this->USER = $USER;
     }
 
-    static function setSERVIDOR($SERVIDOR) {
-        self::$SERVIDOR = $SERVIDOR;
+    function setPWD($PWD) {
+        $this->PWD = $PWD;
     }
 
-    static function setBD($BD) {
-        self::$BD = $BD;
+    function setSERVIDOR($SERVIDOR) {
+        $this->SERVIDOR = $SERVIDOR;
+    }
+
+    function setBD($BD) {
+        $this->BD = $BD;
     }
 
 

@@ -15,10 +15,10 @@ function valida($usuario, $contrasena){
 }
 
 $boolean = valida($Usuario, $Pwd);
-
+echo $boolean;
 if($boolean){
-    header('location:Estudiantes.php');
+    header('location:../vista/Articulos.php');
     
 }else{
-    header('location:index.php');
+    header('location:../vista/index.php');
 }

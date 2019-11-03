@@ -11,41 +11,82 @@
  *
  * @author Ariel May
  */
+//include 'conexion.php';
+include '../Modelo/Usuario.php';
 include '../Dao/DAOGeneral.php';
+
 class DAOUsuario extends DAOGeneral{
-    //put your code here
-   
-    
-    
-    public function agregar($entidad) {
-        Echo "Agreggar";
-    }
 
-    public function consultar($condicion) {
+    var $con;
+
+    function __construct() {
         
     }
 
-    public function eliminar($condicion) {
-        
-    }
+    public function insertar($objetoUsuario) {
+        $c = conectar();
+        $id = $objetoUsuario->getId();
+        $nombres = $objetoUsuario->getNombres();
+        $Apellidos = $objetoUsuario->getApellido();
+        $dui = $objetoUsuario->getDui();
 
-    public function entrar($id, $pass) {
-        /* @var $cn type */
-        $cn = $this->getConexion();
-        $orden = "SELECT * FROM base_usuarios.usuarios WHERE pro_id=".$id." && pro_contrasena=".$pass."\"";
-        $db = mysqli_select_db( $cn, $this->getBD()) or die("no se ha podico conectar a la BD");
-        $resultado = mysqli_query( $cn, $orden ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-        
-        if($id==$resultado[0] && $pass==$resultado[1]){
-            return true;
+        $sql = "insert into usuario values()";
+        if (!$c->query($sql)) {
+            print "Error al insertar";
         } else {
-            false;
+            print '<script languaje="javaScript> alert("Guardado";</script>)';
         }
+        mysqli_close($c);
+    }
+    
+    public function eliminar($objetoUsuario) {
+        $c = conectar();
+        $id = $objetoUsuario->getId();
+
+        $sql = "delete from usuarios where id=$id";
+        if (!$c->query($sql)) {
+            print "Error al eliminar";
+        } else {
+            print '<script languaje="javaScript> alert("Eliminado";</script>)';
+        }
+        mysqli_close($c);
+    }
+    
+    public function modificar($objetoUsuario) {
+        $c = $this->getConexion();
+        $id = $objetoUsuario->getId();
+        $nombres = $objetoUsuario->getNombres();
+        $Apellidos = $objetoUsuario->getApellido();
+        $dui = $objetoUsuario->getDui();
+        
+        $sql = "update usuarios set nombres=$nombre, apellidos=$apellidos, dui=$Dui where id=$id";
+        if (!$c->query($sql)) {
+            print "Error al modificar";
+        } else {
+            print '<script languaje="javaScript> alert("modificado";</script>)';
+        }
+        mysqli_close($c);
+    }
+    
+    public function consultar($Condicion){
         
     }
-
-    public function modificar($entidad, $condicion) {
+    
+    public function entrar($user,$pass){
+        $c = $this->getConexion();        
         
+        $sql = 'SELECT * from usuarios where pro_id="'.$user.'" && pro_contrasena="'.$pass.'"';
+        $estado = false;
+        foreach ($c->query($sql) as $fila){
+            if($fila[0]==$user && $fila[1]==$pass){  
+                $estado = true;
+                return true;
+            }else{
+            }
+        }
+       
+        $c=null;
+        return $estado;
     }
 
 }
