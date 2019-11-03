@@ -1,7 +1,3 @@
-<?php
-session_start();
-$User = $_SESSION['Usuario'];
-?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -15,9 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo $User;
+        // put your code here
         ?>
-        
-        <h3> ARTICULOS</h3>
     </body>
 </html>

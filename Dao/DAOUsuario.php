@@ -24,23 +24,28 @@ class DAOUsuario extends DAOGeneral{
     }
 
     public function insertar($objetoUsuario) {
-        $c = conectar();
+        $c = $this->getConexion();
+        
         $id = $objetoUsuario->getId();
+        $pass = $objetoUsuario->getContrasena();
         $nombres = $objetoUsuario->getNombres();
-        $Apellidos = $objetoUsuario->getApellido();
-        $dui = $objetoUsuario->getDui();
+        $apellidos = $objetoUsuario->getApellido();
+        $edad = $objetoUsuario->getEdad();
+        $correo = $objetoUsuario->getCorreo();
+        $telefono = $objetoUsuario->getTelefono();
+        $sexo = $objetoUsuario->getSexo();
 
-        $sql = "insert into usuario values()";
+        $sql = "insert into usuarios values($id,$pass,$nombres,$apellidos,$edad,$correo,$telefono,$sexo)";
         if (!$c->query($sql)) {
             print "Error al insertar";
         } else {
             print '<script languaje="javaScript> alert("Guardado";</script>)';
         }
-        mysqli_close($c);
+        $c=null;
     }
     
     public function eliminar($objetoUsuario) {
-        $c = conectar();
+        $c = $this->getConexion();
         $id = $objetoUsuario->getId();
 
         $sql = "delete from usuarios where id=$id";
@@ -49,15 +54,20 @@ class DAOUsuario extends DAOGeneral{
         } else {
             print '<script languaje="javaScript> alert("Eliminado";</script>)';
         }
-        mysqli_close($c);
+        
+        $c=null;
     }
     
+    //Falta Terminar
     public function modificar($objetoUsuario) {
-        $c = $this->getConexion();
         $id = $objetoUsuario->getId();
+        $pass = $objetoUsuario->getContrasena();
         $nombres = $objetoUsuario->getNombres();
-        $Apellidos = $objetoUsuario->getApellido();
-        $dui = $objetoUsuario->getDui();
+        $apellidos = $objetoUsuario->getApellido();
+        $edad = $objetoUsuario->getEdad();
+        $correo = $objetoUsuario->getCorreo();
+        $telefono = $objetoUsuario->getTelefono();
+        $sexo = $objetoUsuario->getSexo();
         
         $sql = "update usuarios set nombres=$nombre, apellidos=$apellidos, dui=$Dui where id=$id";
         if (!$c->query($sql)) {
@@ -68,6 +78,7 @@ class DAOUsuario extends DAOGeneral{
         mysqli_close($c);
     }
     
+    //falta Terminar
     public function consultar($Condicion){
         
     }
@@ -75,11 +86,12 @@ class DAOUsuario extends DAOGeneral{
     public function entrar($user,$pass){
         $c = $this->getConexion();        
         
-        $sql = 'SELECT * from usuarios where pro_id="'.$user.'" && pro_contrasena="'.$pass.'"';
+        $sql = 'SELECT * from usuarios where u_Id="'.$user.'" && u_Contrasena="'.$pass.'"';
+        echo $sql;
         $estado = false;
         foreach ($c->query($sql) as $fila){
             if($fila[0]==$user && $fila[1]==$pass){  
-                $estado = true;
+                //$estado = true;
                 return true;
             }else{
             }

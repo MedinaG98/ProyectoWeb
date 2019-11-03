@@ -16,7 +16,7 @@ abstract class DAOGeneral {
     private $USER = "root";
     private $PWD = "123456";
     private $SERVIDOR = "localhost";
-    private $BD = "base_usuarios";
+    private $BD = "TIENDA";
 
     public function getConexion() {
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,9 +16,11 @@ function valida($usuario, $contrasena){
 
 $boolean = valida($Usuario, $Pwd);
 echo $boolean;
-if($boolean){
+if ($boolean) {
+    if (isset($_POST['user'])) {
+        $_SESSION['Usuario'] = $_POST["user"];
+    }
     header('location:../vista/Articulos.php');
-    
-}else{
+} else {
     header('location:../vista/index.php');
 }

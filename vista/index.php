@@ -59,9 +59,12 @@ and open the template in the editor.
                             <label for="pwd">Contraseña:</label>
                             <input type="password" class="form-control" name="pwd">
                         </div>
-                        <br><br>
-                        <button type="submit" class="btn btn-secondary">Entrar</button>
-                        <br><br><br>
+                        <br>
+                        <center><button type="submit" class="btn btn-secondary">Entrar</button> </center>
+                        <br>
+                        <br>
+                        <center><a href="registro.php">¿No te has registrado?</a></center>
+                        <br>
                     </form>
                 </div>
             </div>
