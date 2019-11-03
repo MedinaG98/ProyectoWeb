@@ -42,28 +42,28 @@
                 <form name="registro" method="post" action="validarRegistro.php" onSubmit="return validarRegistro('id', 'nombre', 'edad', 'correo', 'telefono')">
                     <div class="form-group">
                         <label for="id">ID</label>
-                        <input type="text" class="form-control" id="id" aria-describedby="id" placeholder="Introduce id" name="id">
+                        <input type="text" class="form-control" id="id" aria-describedby="id" placeholder="Introduce id" name="id" required>
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre" placeholder="Introduce nombre">
+                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre" placeholder="Introduce nombre" required>
 
                     </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input type="text" class="form-control" id="edad" aria-describedby="edad" name="edad" placeholder="Introduce edad">
+                        <input type="text" class="form-control" id="edad" aria-describedby="edad" name="edad" placeholder="Introduce edad" required>
 
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input type="email" class="form-control" id="correo" aria-describedby="correo" name="correo" placeholder="Introduce email">
+                        <input type="email" class="form-control" id="correo" aria-describedby="correo" name="correo" placeholder="Introduce email" required>
                         <small id="correo" class="form-text text-muted">Tu email no sera compartido con nadie mas</small>
                     </div>
 
                     <div class="form-group">
                         <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Introduce telefono">
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Introduce telefono"required>
                     </div>
 
                     <div class="form-group">
