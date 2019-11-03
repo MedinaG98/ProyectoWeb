@@ -12,24 +12,24 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         
-            <style type="text/css">
-            header, footer{
-                background: #8DBED5;
-                color: #fff;
-                text-align: center;
-            }
-            .color1{
-                background: #34495e;
-                color: #fff;
-            }
-            .contenedor{
-                text-align: center;
-            }
+        <style type="text/css">
+        header, footer{
+            background: #8DBED5;
+            color: #fff;
+            text-align: center;
+        }
+        .color1{
+            background: #34495e;
+            color: #fff;
+        }
+        .contenedor{
+            text-align: center;
+        }
         </style>
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body class="container">
         <?php
         // put your code here
         ?>
@@ -53,11 +53,11 @@ and open the template in the editor.
                     <form action="../Modelo/valida.php" method="post">
                         <div class="form-group">
                             <label for="uname" class="control-label">Usuario:</label>
-                            <input type="text" class="form-control" name="user">
+                            <input type="text" class="form-control" name="user" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="password" class="form-control" name="pwd">
+                            <input type="password" class="form-control" name="pwd" required>
                         </div>
                         <br>
                         <center><button type="submit" class="btn btn-secondary">Entrar</button> </center>
