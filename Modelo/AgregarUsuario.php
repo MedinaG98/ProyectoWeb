@@ -23,7 +23,10 @@ function nuevoUsuario($usuario){
 $nuevoUsuario = new Usuario($id, $pass, $nombre, $apellido, $edad, $correo, $telefono, $genero);
 $nuevo = nuevoUsuario($nuevoUsuario);
 if($nuevo){
-    echo 'Se agrego usuario';
+    if (isset($_POST['id'])) {
+        $_SESSION['Usuario'] = $_POST["id"];
+    }
+    header('location:../vista/Articulos.php');
 }else{
-    //echo 'No se agrego';
+    header('location:../vista/Registro.php');
 }
