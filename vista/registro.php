@@ -39,17 +39,28 @@
 
                 <center><h3>Registro</h3></center>
 
-                <form name="registro" method="post" action="validarRegistro.php" onSubmit="return validarRegistro('id', 'nombre', 'edad', 'correo', 'telefono')">
+                <form name="registro" method="post" action="../Modelo/AgregarUsuario.php">
                     <div class="form-group">
                         <label for="id">ID</label>
                         <input type="text" class="form-control" id="id" aria-describedby="id" placeholder="Introduce id" name="id" required>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="text" class="form-control" id="contrasena" aria-describedby="contrasena" placeholder="Introduce contraseña" name="contrasena" required>
+                    </div>
 
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre" placeholder="Introduce nombre" required>
+                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre" placeholder="Introduce tu nombre" required>
 
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" aria-describedby="apellido" name="apellido" placeholder="Introduce tu apellido" required>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="edad">Edad</label>
                         <input type="text" class="form-control" id="edad" aria-describedby="edad" name="edad" placeholder="Introduce edad" required>
@@ -67,9 +78,9 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="radio"  name="opciones" id="hombre" value="1" checked>
+                        <input type="radio"  name="genero" id="hombre" value="M" checked>
                         <label form="hombre">Hombre</label>
-                        <input type="radio"  name="opciones" id="mujer" value="0" checked>
+                        <input type="radio"  name="genero" id="mujer" value="F" checked>
                         <label form="mujer">Mujer</label>
                     </div>
 

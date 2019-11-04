@@ -22,12 +22,7 @@
             text-align: center;
         }
 		
-		body{
-			
-		background:rgba(206,206,206,1.00);
-	
 
-		}
 		
 		
         </style>
@@ -40,7 +35,7 @@
  
             <div class="col-12">
                 <center><h3>Registro de articulos</h3></center>
-                <form name="registroArticulos" method="post" action="dire.php" >
+                <form name="registroArticulos" method="post" action="AgregarArticulo.php" >
                     <div class="form-group">
                         <label for="narticulo">Nombre de articulo</label>
                         <input type="text" class="form-control" id="narticulo" aria-describedby="narticulo" placeholder="Introduce nombre articulo" name="narticulo" required>

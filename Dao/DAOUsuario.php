@@ -28,18 +28,20 @@ class DAOUsuario extends DAOGeneral{
         
         $id = $objetoUsuario->getId();
         $pass = $objetoUsuario->getContrasena();
-        $nombres = $objetoUsuario->getNombres();
+        $nombres = $objetoUsuario->getNombre();
         $apellidos = $objetoUsuario->getApellido();
         $edad = $objetoUsuario->getEdad();
         $correo = $objetoUsuario->getCorreo();
         $telefono = $objetoUsuario->getTelefono();
         $sexo = $objetoUsuario->getSexo();
+       
+        $sql = 'insert into usuarios values ("'.$id.'","'.$pass.'","'.$nombres.'","'.$apellidos.'","'.$edad.'","'.$correo.'","'.$telefono.'","'.$sexo.'")';
 
-        $sql = "insert into usuarios values($id,$pass,$nombres,$apellidos,$edad,$correo,$telefono,$sexo)";
         if (!$c->query($sql)) {
-            print "Error al insertar";
+            return false;
         } else {
             print '<script languaje="javaScript> alert("Guardado";</script>)';
+            return true;
         }
         $c=null;
     }

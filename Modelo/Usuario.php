@@ -95,6 +95,6 @@ class Usuario {
     function setSexo($sexo) {
         $this->sexo = $sexo;
     }
-
-
+    
+    
 }
